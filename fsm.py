@@ -140,7 +140,7 @@ class TocMachine(GraphMachine):
         global full
         print("I'm eating page")
         sender_id = event['sender']['id']
-        responese = send_three_template(sender_id, "我現在飽足度"+str(full)+",快餵我吃呀,你要餵我吃...","蘋果","可樂","義大利麵")
+        responese = send_three_template(sender_id, "我現在飽足度"+str(full)+",快餵我吃呀,你要餵我吃...(鍵入“算了”以取消)","蘋果","可樂","義大利麵")
 
 
     def on_exit_eating(self,event):
@@ -260,20 +260,26 @@ class TocMachine(GraphMachine):
             text = event['message']['text']
             if text.lower() == '要' and full >= 50:
                 full -= 50
+#                send_id = event['sender']['id']
+#                response = send_text_message(sender_id,"我的飽足度只剩"+str(full)+"喔")
                 return True
         elif event.get("postback"):
             text = event['postback']['title']
             if text.lower() == '要' and full >= 50:
                 full -= 50
+#                send_id = event['sender']['id']
+#                response = send_text_message(sender_id,"我的飽足度只剩"+str(full)+"喔")
+
                 return True
 
         return False
 
     def on_enter_meallist(self, event):
+        global full
         print("I'm entering meallist")
         sender_id = event['sender']['id']
         sendstr = listallfood()
-        responese = send_text_message(sender_id,sendstr)
+        responese = send_text_message(sender_id,"飽足度："+str(full)+"\n"+sendstr)
         responese = send_three_template(sender_id, "你要？","新增","刪除","就這樣吧")
     
     def on_exit_meallist(self,event):
