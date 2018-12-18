@@ -1,67 +1,38 @@
-# TOC Project 2019
+# 鴨肉飯寵物機器人
+* 沒事可以餵餵他，叫他幫你想想等一下要吃什麼
+* 將程式藉由heroku部署在雲端上，所以不需要在本機端開著server
+## FSM diagram
+![](https://i.imgur.com/bidCF86.png)
 
-Template Code for TOC Project 2019
-
-A Facebook messenger bot based on a finite state machine
-
-More details in the [Slides](https://hackmd.io/p/SkpBR-Yam#/) and [FAQ](https://hackmd.io/s/B1Xw7E8kN)
-
-## Setup
-
-### Prerequisite
-* Python 3
-* Facebook Page and App
-* HTTPS Server
-
-#### Install Dependency
-```sh
-pip3 install -r requirements.txt
-```
-
-* pygraphviz (For visualizing Finite State Machine)
-    * [Setup pygraphviz on Ubuntu](http://www.jianshu.com/p/a3da7ecc5303)
-
-#### Secret Data
-
-`VERIFY_TOKEN` and `ACCESS_TOKEN` **MUST** be set to proper values.
-Otherwise, you might not be able to run your code.
-
-#### Run Locally
-You can either setup https server or using `ngrok` as a proxy.
-
-**`ngrok` would be used in the following instruction**
-
-```sh
-./ngrok http 5000
-```
-
-After that, `ngrok` would generate a https URL.
-
-#### Run the sever
-
-```sh
-python3 app.py
-```
-
-## Finite State Machine
-![fsm](./img/show-fsm.png)
-
-## Usage
-The initial state is set to `user`.
-
-Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
-
-* user
-	* Input: "go to state1"
-		* Reply: "I'm entering state1"
-
-	* Input: "go to state2"
-		* Reply: "I'm entering state2"
-
-
-## Reference
-[TOC-Project-2017](https://github.com/Lee-W/TOC-Project-2017) ❤️ [@Lee-W](https://github.com/Lee-W)
-# FBChatbot
-# MyFBChatbot
-# MyFBChatbot
-# FBChatbot
+## How to run and interact with the chatbot
+會有按鈕提示選項，也可以手動輸入
+* 首先第一次打開機器人畫面會有歡迎畫面
+![](https://i.imgur.com/aPsTM1V.png =200x)
+* 按下開始後
+![](https://i.imgur.com/vYKRxZ0.png =200x)
+* 輸入“介紹你自己”會說自己會做什麼
+![](https://i.imgur.com/hGchJFv.png =200x)
+* “帶我去粉專後”會有連結按下後傳送至粉專
+![](https://i.imgur.com/iTZsJ8Q.png =200x)
+* “想吃東西嗎”會告訴你現在的飽足度（一百為上限），並且選不同食物餵他會有不同飽足度增加
+![](https://i.imgur.com/8UrLwLO.png =200x)
+    * 可以選取食物
+![](https://i.imgur.com/69fO50y.png =200x)
+    * 若是超過一百時
+![](https://i.imgur.com/gvNgTf7.png =200x)
+    * 不想餵食可以打“算了”
+![](https://i.imgur.com/2JvKYvb.png =200x)
+* 也可以叫他幫你決定你等等要吃啥，飽足度不夠則需要先餵飽她
+![](https://i.imgur.com/x6JDtgQ.png =200x)
+    * 飽足度夠時會跟你說現在飽足度剩多少並且可以新增刪除清單，選“就這樣吧”會幫你選出你該吃什麼
+![](https://i.imgur.com/Nil9r7o.png =200x)
+        * 新增與刪除（已新增為例），不能新增已經有的也不能刪除沒有的
+![](https://i.imgur.com/1lEV63E.png =200x)
+        * 新增已有時，不允許
+![](https://i.imgur.com/QyY0TaI.png =200x)
+        * 要幫你選時輸入“就這樣吧”，則幫你選出一個
+![](https://i.imgur.com/iFYm2UW.png =200x)
+    * 飽足度不夠時會要你先餵飽
+![](https://i.imgur.com/fPc4hLt.png =200x)
+    * 也可以選不要好了，則取消
+![](https://i.imgur.com/IHh0GD2.png =200x)
