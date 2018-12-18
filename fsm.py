@@ -167,7 +167,7 @@ class TocMachine(GraphMachine):
             elif foodname.lower() == '可樂':
                 foodtype = 2
                 return True
-            elif foodnaem.lower() == '義大利麵':
+            elif foodname.lower() == '義大利麵':
                 foodtype = 3
                 return True
         elif event.get("postback"):
