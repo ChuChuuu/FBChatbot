@@ -2,7 +2,7 @@ from bottle import route, run, request, abort, static_file
 
 from fsm import TocMachine
 from utils import greeting_message
-
+import os
 #VERIFY_TOKEN = "1234567890987654321"
 VERIFY_TOKEN=os.environ['VERIFY_TOKEN']
 PORT = os.environ['PORT']
