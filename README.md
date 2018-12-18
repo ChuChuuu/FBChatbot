@@ -5,7 +5,7 @@
 ![](https://i.imgur.com/bidCF86.png)
 
 ## How to run and interact with the chatbot
-會有按鈕提示選項，也可以手動輸入
+**會有按鈕提示選項，也可以手動輸入**
 ### 首先第一次打開機器人畫面會有歡迎畫面
 ![](https://i.imgur.com/aPsTM1V.png)
 ### 按下開始後
