@@ -38,6 +38,7 @@ def appendafood(food):
     if foodlist.count(food) > 0:
        return "清單裡面已經有了啦吼！"
     elif foodlist.count(food) == 0:
+       foodlist.append(food)
        return "新增好囉！"
 
 class TocMachine(GraphMachine):
