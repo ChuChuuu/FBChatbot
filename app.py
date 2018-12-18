@@ -164,6 +164,9 @@ def webhook_handler():
 
     if body['object'] == "page":
         event = body['entry'][0]['messaging'][0]
+        if 'message' in event:
+            if 'attachments' in event['message']:
+                return 'OK'        
         machine.advance(event)
         return 'OK'
 
