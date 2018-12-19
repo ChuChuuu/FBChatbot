@@ -4,6 +4,7 @@ from utils import send_text_message
 from utils import send_page_message
 from utils import send_three_template
 from utils import send_two_template
+from utils import send_image_message
 import random
 
 full = 40
@@ -86,6 +87,7 @@ class TocMachine(GraphMachine):
         print("I'm entering about")
 
         sender_id = event['sender']['id']
+		send_image_message(sender_id,"https://i.imgur.com/RqwhJzY.jpg")
         send_text_message(sender_id, "我就是一隻鴨肉飯")
         send_three_template(sender_id,"不過你可以試著問我","帶我去你的粉專吧","想吃東西嗎","幫我想我等等要吃什麼")
         self.go_back()    
